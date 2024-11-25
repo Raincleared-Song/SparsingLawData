@@ -20,9 +20,8 @@ We use Mean Square Error (MSE) and Mean Absolute Error (MAE) to evaluate the fit
 The following texts are the running results with `0.1b_relu`, which clearly demonstrate the advantage of our power-laws over the logarithmic function:
 
 ```
-fitted log coefficients: -0.0005883156648853158 1.11165463273677 -0.017487311062229744
 MAE of power-law: 0.0004073948837353185
-MAE of logarithmic function: 0.0034236714031176986
+MAE of logarithmic function: 0.0034236725042360383
 MSE of power-law: 2.6777953784674045e-07
-MSE of logarithmic function: 2.168866052785137e-0
+MSE of logarithmic function: 2.1688660527788024e-05
 ```
