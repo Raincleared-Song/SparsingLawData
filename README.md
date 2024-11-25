@@ -25,3 +25,15 @@ MAE of logarithmic function: 0.0034236725042360383
 MSE of power-law: 2.6777953784674045e-07
 MSE of logarithmic function: 2.1688660527788024e-05
 ```
+
+### Fitting Algorithm
+
+We use the `curve_fit` method from package `scipy` to fit our curves, which employ the Levenberg-Marquardt method.
+
+### Study on Dead Neurons
+
+Specifically, we define the neurons that are activated by less than 0.1% tokens in the validation dataset on average as "dead neurons". For the 0.1B ReLU-activated model and SiLU-activated model, we display their trends of activations ratios and dead neuron ratios in the following figure:
+
+![](figures/dead_neuron.jpg)
+
+As shown in the above figure, for both models, the dead neuron ratios do not increase considerably throughout the training process. For example, the dead neuron ratio of 0.1B ReLU model increases to about 0.35% at the end of training. However, its activation ratio decreases by about 3.38% (from 10.47% to 7.09%). We can draw the following conclusion: The "dying ReLU" phenomenon does slightly exist, but is far from the fundamental cause of the decreasing activation ratio trends of ReLU-activated models.
