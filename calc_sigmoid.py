@@ -72,13 +72,13 @@ def main(model: str):
 
     mae_power, mse_power = np.average(np.abs(y - y_pred)), np.average(np.square(y - y_pred))
     y_pred = test_func(x, *popt)
-    mae_log, mse_log = np.average(np.abs(y - y_pred)), np.average(np.square(y - y_pred))
-    print("fitted log coefficients:", *popt)
+    mae_inv, mse_inv = np.average(np.abs(y - y_pred)), np.average(np.square(y - y_pred))
+    print("fitted sigmoid-like coefficients:", *popt)
 
     print("MAE of power-law: {:.3e}".format(mae_power))
-    print("MAE of logarithmic function: {:.3e}".format(mae_log))
+    print("MAE of sigmoid-like function: {:.3e}".format(mae_inv))
     print("MSE of power-law: {:.3e}".format(mse_power))
-    print("MSE of logarithmic function: {:.3e}".format(mse_log))
+    print("MSE of sigmoid-like function: {:.3e}".format(mse_inv))
 
     a, b, c, d = popt
 

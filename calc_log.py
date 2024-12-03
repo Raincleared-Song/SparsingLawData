@@ -61,7 +61,7 @@ def main(model: str):
     mae_power, mse_power = np.average(np.abs(y - y_pred)), np.average(np.square(y - y_pred))
     y_pred = test_func(x, *popt)
     mae_log, mse_log = np.average(np.abs(y - y_pred)), np.average(np.square(y - y_pred))
-    print("fitted log coefficients:", *popt)
+    print("fitted logarithmic coefficients:", *popt)
 
     print("MAE of power-law: {:.3e}".format(mae_power))
     print("MAE of logarithmic function: {:.3e}".format(mae_log))

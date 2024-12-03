@@ -63,7 +63,7 @@ def main(model: str):
     y_pred = log_func(x, *popt)
     mae_log, mse_log = np.average(np.abs(y - y_pred)), np.average(np.square(y - y_pred))
     log_popt = popt
-    print("fitted log coefficients:", *log_popt)
+    print("fitted logarithmic coefficients:", *log_popt)
 
     if "silu" in model:
         if '1.2b' in model:
@@ -84,18 +84,18 @@ def main(model: str):
     y_pred = inv_exp_func(x, *popt)
     mae_inv, mse_inv = np.average(np.abs(y - y_pred)), np.average(np.square(y - y_pred))
     inv_popt = popt
-    print("fitted inv_exp coefficients:", *inv_popt)
+    print("fitted sigmoid-like coefficients:", *inv_popt)
 
     print("MAE of power-law:", mae_power)
     print("MAE of logarithmic function:", mae_log)
-    print("MAE of inverse exp function:", mae_inv)
+    print("MAE of sigmoid-like function:", mae_inv)
     print("MSE of power-law:", mse_power)
     print("MSE of logarithmic function:", mse_log)
-    print("MSE of inverse exp function:", mse_inv)
+    print("MSE of sigmoid-like function:", mse_inv)
 
     ax.scatter(x, y)
-    ax.plot(X, log_func(X, *log_popt), color="orange", label="log")
-    ax.plot(X, inv_exp_func(X, *inv_popt), color="green", label="inv_exp")
+    ax.plot(X, log_func(X, *log_popt), color="orange", label="logarithmic")
+    ax.plot(X, inv_exp_func(X, *inv_popt), color="green", label="sigmoid-like")
     ax.legend()
     ax.set_xbound(0, x.max() * 1.2)
     ax.set_ybound(y.min() - 0.03, y.max() + 0.03)
